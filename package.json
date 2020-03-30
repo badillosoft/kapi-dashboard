@@ -1,0 +1,20 @@
+{
+  "@:[kapi]": null,
+  "name": "dashboard",
+  "version": "1.0.0",
+  "description": "kapi dashboard",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "keywords": [],
+  "author": "kuhni labs",
+  "license": "ISC",
+  "dependencies": {
+    "next": "^9.3.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
