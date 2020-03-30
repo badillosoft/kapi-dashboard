@@ -20,19 +20,19 @@ const usePostFormularioNuevo = (url, data = {}) => {
         (async () => {
             console.log("fetch");
             setStatus("api-fetching");
-            // data.id = `cliente${Math.random().toString(32).slice(2)}`;
+            data.id = `cliente${Math.random().toString(32).slice(2)}`;
             try {
                 const response = await fetch(url, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
                     },
-                    // mode: "cors",
+                    mode: "cors",
                     body: JSON.stringify(data)
                 });
-                const text = await response.arrayBuffer();
-                console.log(`Error:`, text);
                 if (!response.ok) {
+                    const text = await response.text();
+                    console.log(`Error:`, text);
                     console.log(response);
                     setStatus("api-error");
                     setError(`${response.statusText}/${text}`);
@@ -40,7 +40,8 @@ const usePostFormularioNuevo = (url, data = {}) => {
                 }
                 setStatus("api-fetched");
                 const json = await response.json();
-                setResult(json);
+                console.log(json);
+                // setResult(json);
                 setStatus("api-done");
             } catch(error) {
                 console.warn(`${error}`);
